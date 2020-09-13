@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>os</title>
+        <link rel="stylesheet" href="include/ui.css">
+    </head>
+    <body>
+        <image style="display: none;" xlink:href="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599320152957&di=f811d8e26a079e8f107105156d52b96a&imgtype=0&src=http%3A%2F%2Fattachments.gfan.com%2Fforum%2Fattachments2%2Fday_120922%2F12092218496673be148f5c435b.jpg" x="0" y="0" width="2880" height="1620" />
+        <!--背景图片-->
+        <div id="__os_windows"></div>
+        <!--上面那个必须要，不然就没有窗口了-->
+        <div id="msggroup"></div>
+        <div id="__os__startmenu">
+            <!--开始菜单-->
+            <a class="task-button" onclick="webkit('https://www.17xueba.com/views/m/studycenter/index.vpage','一起学网校',300,400);document.getElementById('__os__startmenu').style.display = 'none';">一起学网校</a>
+            <a class="task-button" onclick="webkit('https://music.zhuolin.wang','音乐',700,400);document.getElementById('__os__startmenu').style.display = 'none';">音乐</a>
+            <a class="task-button" onclick="webkit('https://ps.gaoding.com/sources/index.html#%7B%22files%22:%5B%5D,%22resources%22:%5B%5D,%22environment%22:%7B%22theme%22:1,%22lang%22:%22zh-CN%22,%22vmode%22:0,%22intro%22:true,%22localsave%22:true,%22topt%22:%7B%22t0%22:%5B1,0,0%5D%7D,%22menus%22:%5B%5B1,1,1,1,1,0,1,1,1,1,1,1,1%5D,1,1,1,1,1,1,1,1%5D%7D%7D','PhotoShop',700,400);document.getElementById('__os__startmenu').style.display = 'none';">PhotoShop</a>
+        </div>
+        
+    </body>
+    <script src="include/window.js"></script>
+    <script>
+        __start()//使用前请初始化任务栏
+        newdownmsg("<h1>欢迎使用！</h1>")
+        newdownmsg("<h1>关于</h1><p>Copyright(C)liushuxi.All right reserved.</p>")
+        newdownmsg("<h1>如何移动窗口</h1><p>把鼠标移动到窗口最上方，会显示一个标题栏，按住拖动即可")
+        newdownmsg("<h1>如何改变窗口大小？</h1><p>移动到窗口边缘会显示透明正方形，拖动即可</h1>")
+    </script>
+</html>

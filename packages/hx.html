@@ -1,0 +1,518 @@
+<html copyright="liushuxi(C)2019-2020.">
+    <head>
+        <title>互动题live风格</title>
+        <script src="emojiCursor.js"></script>
+        <style>
+            a{
+                /*超链接默认下划线去掉*/
+                text-decoration: none;
+            }
+            body{
+                background-image: url("img/livebac2.png");
+                padding: 0px;
+                background-size: 100% 100%;
+                text-align: center;
+            }
+            *{
+                text-align: center;
+            }
+            #question{
+                /*问题面板*/
+                padding: 30px 15px 30px 15px;
+                font-size: 25px;
+                background-image: url("img/livequbc.png");
+                width: 1342px;
+                height: 354px;
+                background-size: 100% 100%;
+                left: 50%;
+                transform: translateX(-50%);
+                position: relative;
+            }
+            .bac{
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                opacity: 0.2;
+                background-color: white;
+                z-index: -1;
+            }
+            #a,#b,#c,#d{
+                border-radius: 10px;
+                /*background-color: white;*/
+                font-size: 20px;
+                margin: 20px 0px 20px 0px;
+                padding: 30px 30px 30px 30px;
+                animation: que 0.2s;
+                -webkit-animation: que 0.2s;
+                display: block;
+                width: 60%;
+                position: relative;
+                transform: translateX(-50%);
+                -webkit-transform: translateX(-50%);
+                left: 50%;
+                display: none;
+                box-shadow: 2px 2px 5px black;
+            }
+            #a::before,#b::before,#c::before,#d::before{
+                background: url("img/livean.png") no-repeat;
+                background-size: 100%;
+                font-size: 20px;
+                height: 100%;
+                padding: 14px 13px 20px 20px;
+
+            }
+            #a:hover,#b:hover,#c:hover,#d:hover{
+                animation: abcd_h 0.2s;
+                -webkit-animation: abcd_h 0.2s;
+                transform: translateX(-30%);
+                -webkit-transform: translateX(-30%);
+            }
+            @keyframes abcd_h{
+                from{
+                    transform: translateX(-50%);
+                    -webkit-transform: translateX(-50%);
+                }
+                to{
+                    transform: translateX(-30%);
+                    -webkit-transform: translateX(-30%);
+                }
+            }
+            @-webkit-keyframes abcd_h{
+                from{
+                    transform: translateX(-50%);
+                    -webkit-transform: translateX(-50%);
+                }
+                to{
+                    transform: translateX(-30%);
+                    -webkit-transform: translateX(-30%);
+                }
+            }
+            #a::after,#b::after,#c::after,#d::after{
+                padding: 40px 70px 20px 20px;
+                height: 100%;
+                content: "";
+            }
+            #a:hover .bac{
+                opacity: 1;
+            }
+            #b:hover .bac{
+                opacity: 1;
+            }
+            #c:hover .bac{
+                opacity: 1;
+            }
+            #d:hover .bac{
+                opacity: 1;
+            }
+            @keyframes bodyw{
+                1%{
+                    transform: translateX(0px);
+                    -webkit-transform: translateX(0px);
+                    transform: translateY(0px);
+                    transform: translateY(0px);
+                }
+                25%{
+                    transform: translateX(20px);
+                    -webkit-transform: translateX(20px);
+                    transform: translateY(20px);
+                    transform: translateY(20px);
+                }
+                50%{
+                    transform: translateX(-20px);
+                    -webkit-transform: translateX(-20px);
+                    transform: translateY(-20px);
+                    transform: translateY(-20px);
+                }
+                75%{
+                    transform: translateX(20px);
+                    -webkit-transform: translateX(20px);
+                    transform: translateY(20px);
+                    transform: translateY(20px);
+                }
+                100%{
+                    transform: translateX(0px);
+                    -webkit-transform: translateX(0px);
+                    transform: translateY(0px);
+                    transform: translateY(0px);
+                }
+            }
+            @-webkit-keyframes bodyw{
+                1%{
+                    transform: translateX(0px);
+                    -webkit-transform: translateX(0px);
+                    transform: translateY(0px);
+                    transform: translateY(0px);
+                }
+                25%{
+                    transform: translateX(20px);
+                    -webkit-transform: translateX(20px);
+                    transform: translateY(20px);
+                    transform: translateY(20px);
+                }
+                50%{
+                    transform: translateX(-20px);
+                    -webkit-transform: translateX(-20px);
+                    transform: translateY(-20px);
+                    transform: translateY(-20px);
+                }
+                75%{
+                    transform: translateX(20px);
+                    -webkit-transform: translateX(20px);
+                    transform: translateY(20px);
+                    transform: translateY(20px);
+                }
+                100%{
+                    transform: translateX(0px);
+                    -webkit-transform: translateX(0px);
+                    transform: translateY(0px);
+                    transform: translateY(0px);
+                }
+            }
+            #a::before{
+                content: "A ";
+            }
+            #b::before{
+                content: "B ";
+            }
+            #c::before{
+                content: "C ";
+            }
+            #d::before{
+                content: "D ";
+            }
+            @keyframes que {
+                from{
+                    transform: translateX(-100%);
+                    -webkit-transform: translateX(-100%);
+                    left: 0%;
+                }
+                to{
+                    transform: translateX(-50%);
+                    -webkit-transform: translateX(-50%);
+                    left: 50%;
+                }
+            }
+            @-webkit-keyframes que {
+                from{
+                    transform: translateX(-100%);
+                    -webkit-transform: translateX(-100%);
+                    left: 0%;
+                }
+                to{
+                    transform: translateX(-50%);
+                    -webkit-transform: translateX(-50%);
+                    left: 50%;
+                }
+            }
+            #sub{
+                /*提交按钮*/
+                position: fixed;
+                right: 5%;
+                bottom: 10%;
+                border-radius: 100px;
+                color: white;
+                background-color: orange;
+                font-size: 20px;
+                padding: 15px;
+                margin: 20px 0px 20px 0px;
+            }
+            @keyframes su_a{
+                from{
+                    transform: scale(1,1);
+                }
+                to{
+                    transform: scale(1.2,1.2);
+                }
+            }
+            @-webkit-keyframes su_a{
+                from{
+                    transform: scale(1,1);
+                }
+                to{
+                    transform: scale(1.2,1.2);
+                }
+            }
+            @keyframes sub_big{
+                from{
+                    left: 95%;
+                    top: 90%;
+                    border-radius: 100px;
+                    width: auto;
+                    height: auto;
+                }
+                to{
+                    left: 0px;
+                    top: 0px;
+                    border-radius: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            @-webkit-keyframes sub_big{
+                from{
+                    left: 95%;
+                    top: 90%;
+                    border-radius: 100px;
+                    width: auto;
+                    height: auto;
+                }
+                to{
+                    left: 0px;
+                    top: 0px;
+                    border-radius: 0;
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+        </style>
+        <style id="substy">
+            #sub:hover {
+                animation: su_a 0.2s;
+                -webkit-animation: su_a 0.2s;
+                transform: scale(1.2, 1.2);
+            }
+        
+            #sub:active {
+                animation: su_a 0.1s;
+                -webkit-animation: su_a 0.1s;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="bac" style="position: fixed;background-color: greenyellow;" ></div>
+        <div id="question">
+            example:how many words "example" in this page?
+        </div>
+        <a id="a">5 examples</a>
+        <a id="b"></div>6 examples</a>
+        <a id="c"></div>7 examples</a>
+        <a id="d"></div>no example</a>
+        <a id="sub">go-></a>
+    </body>
+    <footer>
+        <script>
+            var setting = {}
+            setting.right = 2 //正确的答案
+            var answer = 0
+            var lastans = 0
+            var anb = {}
+            document.getElementById("sub").onclick = function(){
+                if (answer == 0){
+                    alert("一起学TM提醒您，你还没有选择！")
+                    return
+                }
+                if (answer == setting.right){
+                    pg(answer,"img/liverig.png")
+                    document.getElementById("sub").onclick = function(){
+                    largesub("<h1>恭喜您答对了！</h1>")
+                }
+                }
+                else{
+                    pg(setting.right,"img/liverig.png")
+                    pg(answer,"img/livewro.png")
+                    htmlw()
+                    document.getElementById("sub").onclick = function(){
+                    largesub("<h1>您答错了，再接再厉！</h1>")
+                }
+                }
+            }
+            function htmlw(){
+                var a = document.body.style.position
+                document.body.style.position = "fixed"
+                document.body.style.animation = "bodyw 0.5s"
+                document.body.style.webkitAnimation = "bodyw 0.5s"
+                document.body.style.position = "auto"
+                document.body.style.position = a
+            }
+            anb.a = document.getElementById("a"),
+                anb.b = document.getElementById("b"),
+                anb.c = document.getElementById("c"),
+                anb.d = document.getElementById("d")
+            document.getElementById("a").onclick = function () {
+                chab(lastans);
+                pb(lastans,"img/livean.png")
+                var a = 1
+                if (lastans == a){
+                    lastans = 0
+                }
+                else{
+                    lastans = a
+                    chaa(lastans)
+                    pb(lastans,"img/liveaa.png")
+                }
+                return false;
+            }
+            document.getElementById("b").onclick = function () {
+                chab(lastans);
+                pb(lastans,"img/livean.png")
+                var a = 2
+                if (lastans == a){
+                    lastans = 0
+                }
+                else{
+                    lastans = a
+                    chaa(lastans)
+                    pb(lastans,"img/liveaa.png")
+                }
+                return false;
+            }
+            document.getElementById("c").onclick = function () {
+                chab(lastans);
+                pb(lastans,"img/livean.png")
+                var a = 3
+                if (lastans == a){
+                    lastans = 0
+                }
+                else{
+                    lastans = a
+                    chaa(lastans)
+                    pb(lastans,"img/liveaa.png")
+                }
+                return false;
+            }
+            document.getElementById("d").onclick = function () {
+                chab(lastans);
+                pb(lastans,"img/livean.png")
+                var a = 4
+                if (lastans == a){
+                    lastans = 0
+                }
+                else{
+                    lastans = a
+                    chaa(lastans)
+                    pb(lastans,"img/liveaa.png")
+                }
+                return false;
+            }
+            window.onresize = function () {
+                var ele = document.getElementById("question")
+                document.getElementById("question").style.height = 0.4 * document.body.clientHeight + "px";
+                document.getElementById("question").style.width = document.getElementById("question").offsetHeight * (1342 / 354);
+                if (ele.offsetWidth + 150 > document.body.clientWidth) {
+                    ele.style.width = document.body.clientWidth * 0.7 + "px"
+                    ele.style.height = ele.offsetWidth * (354 / 1342)
+                }
+            }
+            var sleep = function (time) {
+                var startTime = new Date().getTime() + parseInt(time, 10);
+                while (new Date().getTime() < startTime) { }
+            };
+            window.onresize()
+            anb.a.style.display = "block"
+            anb.a.addEventListener("animationend", function () {
+                anb.b.style.display = "block"
+            });
+            anb.b.addEventListener("animationend", function () {
+                anb.c.style.display = "block"
+            });
+            anb.c.addEventListener("animationend", function () {
+                anb.d.style.display = "block"
+            });
+            
+            function chaa(e){
+                answer = e;
+                if (e == 0){
+                    return
+                }
+                else if(e == 1){
+                    anb.a.style.backgroundColor = "orange"
+                }
+                else if(e == 2){
+                    anb.b.style.backgroundColor = "orange"
+                }
+                else if(e == 3){
+                    anb.c.style.backgroundColor = "orange"
+                }
+                else if(e == 4){
+                    anb.d.style.backgroundColor = "orange"
+                }
+            }
+            function chab(e){
+                if (e == 0){
+                    return
+                }
+                else if(e == 1){
+                    anb.a.style.backgroundColor = "transparent"
+                }
+                else if(e == 2){
+                    anb.b.style.backgroundColor = "transparent"
+                }
+                else if(e == 3){
+                    anb.c.style.backgroundColor = "transparent"
+                }
+                else if(e == 4){
+                    anb.d.style.backgroundColor = "transparent"
+                }
+            }
+            function append(str){
+                document.head.innerHTML = document.head.innerHTML + str;
+            }
+            function pg(e,a){
+                if (e == 0){
+                    return
+                }
+                else if(e == 1){
+                    append("<style>#a::after{background-image: url(\"" + a + "\");}</style>")
+                }
+                else if(e == 2){
+                    append("<style>#b::after{background-image: url(\"" + a + "\");}</style>")
+                }
+                else if(e == 3){
+                    append("<style>#c::after{background-image: url(\"" + a + "\");}</style>")
+                }
+                else if(e == 4){
+                    append("<style>#d::after{background-image: url(\"" + a + "\");}</style>")
+                }
+            }
+            function pb(e,a){
+                if (e == 0){
+                    return
+                }
+                else if(e == 1){
+                    append("<style>#a::before{background-image: url(\"" + a + "\");}</style>")
+                }
+                else if(e == 2){
+                    append("<style>#b::before{background-image: url(\"" + a + "\");}</style>")
+                }
+                else if(e == 3){
+                    append("<style>#c::before{background-image: url(\"" + a + "\");}</style>")
+                }
+                else if(e == 4){
+                    append("<style>#d::before{background-image: url(\"" + a + "\");}</style>")
+                }
+            }
+            function largesub(txt){
+                append("<style>#sub{z-index:10;width: 100%;height: 100%;left: 0px;top: 0px;border-radius: 0;}</style>")
+                
+                document.getElementById("substy").innerHTML = " ";
+                var sub = document.getElementById("sub")
+                sub.style.animation = "sub_big 2s"
+                sub.style.webkitAnimation = "sub_big 2s"
+                sub.innerHTML = txt
+            }
+            function toele(e){
+                if (e == 0){
+                    return
+                }
+                else if(e == 1){
+                    return anb.a
+                }
+                else if(e == 2){
+                    return anb.b
+                }
+                else if(e == 3){
+                    return anb.c
+                }
+                else if(e == 4){
+                    return anb.d
+                }
+            }
+        </script>
+        <script>
+            var eles = ["氢","氦","锂","铍","硼","碳","氮","氧","氟","氖","钠","镁","铝","硅","磷","硫","氯","氩","钾","钙"]
+            var wds = ["H","He","Li","Be","B","C","N","O","F","Ne","Na","Mg","Al","Si","P","S","Cl","Ar","K","Ca"]
+        </script>
+    </footer>
+</html>

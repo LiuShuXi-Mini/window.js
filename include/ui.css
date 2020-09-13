@@ -1,0 +1,455 @@
+a{
+    text-decoration: none;
+}
+body{
+    background: url("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1599320152957&di=f811d8e26a079e8f107105156d52b96a&imgtype=0&src=http%3A%2F%2Fattachments.gfan.com%2Fforum%2Fattachments2%2Fday_120922%2F12092218496673be148f5c435b.jpg");
+    background-size: cover;
+}
+/*os样式*/
+#__os_windows{
+    /*窗口存放div，按需修改*/
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    position: fixed;
+}
+.msgcard{
+    /*通知*/
+    width: 200px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 5px;
+    animation: crd_cre 1s;
+    -webkit-animation: crd_cre 1s;
+    margin: 5px;
+    border-radius: 5px;
+}
+#msggroup{
+    /*存放通知的div，按需修改*/
+    bottom: 0px;
+    right: 0px;
+    position: fixed;
+    width: auto;
+    height: 40%;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+#msggroup::-webkit-scrollbar{
+    height: 0px;
+    width: 4px;
+    opacity: 80%;
+}
+#msggroup::-webkit-scrollbar-thumb{
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.6);
+}
+#msggroup::-webkit-scrollbar-track{
+    background: rgba(255, 255, 255, 0.7);
+}
+.window{
+    /*window窗体*/
+    background-color: rgba(255, 255, 255, 0.3);
+    color: black;
+    position: fixed;
+    border-radius: 10px 10px 0px 0px;
+    left: 10px;
+    top: 20px;
+    width: 40%;
+    height: 30%;
+    padding: 5px;
+    animation: win_cre 1s;
+    -webkit-animation: win_cre 1s;
+}
+.full-window{
+    /*充满整个窗体。TODO:修改左右下角圆角*/
+    border-radius: inherit;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+}
+.window .upboard{
+    /*Window顶栏*/
+    border-radius: 10px 10px 0px 0px;
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    transform: translateY(-80%);
+    -webkit-transform: translateY(-80%);
+    background-color: rgb(102, 102, 102);
+    filter: brightness(1.1);
+    padding: 8px 0px 8px 0px;
+    color: white;
+    z-index: 10;
+
+}
+.window .upboard:hover{
+    /*自动显示*/
+    opacity: 1;
+    height: auto;
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+    animation: windowup_cre 0.5s;
+    -webkit-animation: windowup_cre 0.5s;
+}
+#__window_close_group{
+    /*窗口有关闭按钮的那个*/
+    display: inline-block;
+    margin: 0px 5px 0px 5px;
+}
+#__window_close_group a:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+    animation: button_h 0.25s;
+    -webkit-animation: button_h 0.25s;
+}
+#__window_close_group a{
+    padding: 5px;
+    border-radius: 100px;
+    margin: 0px 5px 0px 5px;
+}
+#__desktop__ch{
+    /*桌面选择*/
+    border-radius: 5px;
+    background: rgba(135, 207, 235, 0.6);
+    border-color: blue;
+    border-width: 2px;
+    position: fixed;
+}
+#__os__startmenu{
+    /*开始菜单*/
+    position: fixed;
+    animation: win_cre 0.5s;
+    -webkit-animation: win_cre 0.5s;
+    width: 40%;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 10px;
+    display: none;
+    z-index: 20;
+}
+.window .left{
+    width: 5px;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+.window .left:hover{
+    box-shadow: 0px 0px 8px white;
+    background: rgba(255, 255, 255, 0.8);
+    animation: white_shine 0.5s;
+    -webkit-animation: white_shine 0.5s;
+}
+.window .right{
+    width: 5px;
+    position: absolute;
+    left: 100%;
+    top: 0px;
+    height: 100%;
+    transform: translateX(-50%);
+    -webkit-transform: translateX(-50%);
+}
+.window .right:hover{
+    box-shadow: 0px 0px 8px white;
+    background: rgba(255, 255, 255, 0.8);
+    animation: white_shine 0.5s;
+    -webkit-animation: white_shine 0.5s;
+}
+.window .bottom{
+    height: 5px;
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    width: 100%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+.window .bottom:hover{
+    box-shadow: 0px 0px 8px white;
+    background: rgba(255, 255, 255, 0.8);
+    animation: white_shine 0.5s;
+    -webkit-animation: white_shine 0.5s;
+}
+.window .right-bottom{
+    height: 5px;
+    width: 5px;
+    position: absolute;
+    left: 100%;
+    top: 100%;
+    transform: translateY(-50%) translateX(-50%);
+    -webkit-transform: translateY(-50%) translateX(-50%);
+}
+.window .right-bottom:hover{
+    box-shadow: 0px 0px 8px white;
+    background: rgba(255, 255, 255, 0.8);
+    animation: white_shine 0.5s;
+    -webkit-animation: white_shine 0.5s;
+}
+.window .left-bottom{
+    height: 5px;
+    width: 5px;
+    position: absolute;
+    left: 0px;
+    top: 100%;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+}
+.window .left-bottom:hover{
+    box-shadow: 0px 0px 8px white;
+    background: rgba(255, 255, 255, 0.8);
+    animation: white_shine 0.5s;
+    -webkit-animation: white_shine 0.5s;
+}
+#__os__taskboard{
+    /*任务栏*/
+    position: fixed;
+    bottom: 0px;
+    background-color: rgba(255, 255, 255, 0.7);
+    left: 0;
+    padding: 10px 0px 10px 0px;
+    width: 100%;
+    color: white;
+    animation: all_down 1s;
+    -webkit-animation: all_down 1s;
+    transform: translateY(90%);
+    -webkit-transform: translateY(90%);
+}
+#__os__taskboard:hover{
+    animation: all_up 1s;
+    -webkit-animation: all_up 1s;
+    transform: translateY(0%);
+    -webkit-transform: translateY(0%);
+}
+#__os__startbutton{
+    /*开始按钮*/
+    padding: 10px;
+}
+#__os__startbutton:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+    animation: button_h 0.25s;
+    -webkit-animation: button_h 0.25s;
+}
+.task-button{
+    /*系统开始菜单、开始按钮、任务栏*/
+    padding: 15px;
+}
+#__os__startmenu .task-button{
+    margin: 5px;
+    display: block;
+}
+.task-button:hover{
+    background-color: rgba(255, 255, 255, 0.3);
+    animation: button_h 0.25s;
+    -webkit-animation: button_h 0.25s;
+}
+#__move__bac{
+    /*移动时的背景*/
+    z-index: 7;
+    background: rgba(255, 255, 255, 0.7);
+    animation: slow_in 0.5s;
+    -webkit-animation: slow_in 0.5s;
+    display: none;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+
+}
+/*最好不要改的属性*/
+#__os__desktop{
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+/*keyframes*/
+@keyframes button_h{
+    from{
+        background-color: transparent;
+    }
+    to{
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+}
+@-webkit-keyframes button_h{
+    from{
+        background-color: transparent;
+    }
+    to{
+        background-color: rgba(255, 255, 255, 0.3);
+    }
+}
+@keyframes slow_in{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@-webkit-keyframes slow_in{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+}
+@keyframes slow_out{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+@-webkit-keyframes slow_out{
+    from{
+        opacity: 1;
+    }
+    to{
+        opacity: 0;
+    }
+}
+
+@keyframes win_cre{
+    from{
+        transform: translateY(100%);
+        -webkit-transform: translateY(100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+        opacity: 1;
+    }
+}
+@-webkit-keyframes win_cre{
+    from{
+        transform: translateY(90%);
+        -webkit-transform: translateY(90%);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+        opacity: 1;
+    }
+}
+@keyframes crd_cre{
+    from{
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+        opacity: 1;
+    }
+}
+@-webkit-keyframes crd_cre{
+    from{
+        transform: translateX(100%);
+        -webkit-transform: translateX(100%);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0%);
+        -webkit-transform: translateX(0%);
+        opacity: 1;
+    }
+}
+@keyframes all_up{
+    from{
+        transform: translateY(90%);
+        -webkit-transform: translateY(90%);
+    }
+    to{
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+    }
+}
+@-webkit-keyframes all_up{
+    from{
+        transform: translateY(90%);
+        -webkit-transform: translateY(90%);
+    }
+    to{
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+    }
+}
+@keyframes all_down{
+    from{
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+    }
+    to{
+
+        transform: translateY(90%);
+        -webkit-transform: translateY(90%);
+    }
+}
+@-webkit-keyframes all_down{
+    from{
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+    }
+    to{
+
+        transform: translateY(90%);
+        -webkit-transform: translateY(90%);
+    }
+}
+@keyframes white_shine{
+    from{
+        box-shadow: none;
+        background: none;
+    }
+    to{
+        box-shadow: 0px 0px 8px white;
+        background: rgba(255, 255, 255, 0.8);
+    }
+}
+@-webkit-keyframes white_shine{
+    from{
+        box-shadow: none;
+        background: none;
+    }
+    to{
+        box-shadow: 0px 0px 8px white;
+        background: rgba(255, 255, 255, 0.8);
+    }
+}
+@keyframes windowup_cre{
+    from{
+        opacity: 0;
+        transform: translateY(-80%);
+        -webkit-transform: translateY(-80%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+    }
+}
+@-webkit-keyframes windowup_cre{
+    from{
+        opacity: 0;
+        transform: translateY(-80%);
+        -webkit-transform: translateY(-80%);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0%);
+        -webkit-transform: translateY(0%);
+    }
+}
