@@ -102,7 +102,7 @@ function createWindow(html,title,w,h,x,y){
         //隐藏窗口
 
     }
-    if (document.getElementById("__program__" + this.hwn) == null){
+    if (__window.usetaskboard == true){
         document.getElementById("__os__taskboard").innerHTML = document.getElementById("__os__taskboard").innerHTML + '<a class="task-button" id="__program__' + ret.hwn + '" onclick = \'' + 'if(document.getElementById("' + ret.eleid + '").style.display == "none"){document.getElementById("' + ret.eleid + '").style.display = "block";}else{if(document.getElementById("' + ret.eleid + '").getAttribute("ischange") == "true"){document.getElementById("' + ret.eleid + '").style.display = "none";}}'+ 'document.getElementById("' + ret.eleid + '").onclick();' + '\'>' + title +'</a>'
         console.log(title)
     }
