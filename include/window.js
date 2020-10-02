@@ -187,6 +187,7 @@ function addmoves(){
                         document.getElementById(__window.eleid[a]).setAttribute("ischange","false")
                     }
                 }
+                this.style.zIndex = "4"
                 this.setAttribute("ischange","true")
                 return false
             }
