@@ -116,6 +116,7 @@ function createWindow(html,title,w,h,x,y){
         document.getElementById(ret.eleid).style.height = h + "px"
     }
     addmoves()
+    document.getElementById(ret.eleid).onclick()
     return ret
 }
 function newdownmsg(html){
